@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">PlaySeer AI system architecture</title><desc id="desc">Game signals flow into four local agents, then through a human approval gate into a decision brief.</desc>
+  <rect width="1200" height="500" rx="32" fill="#121a22"/>
+  <g font-family="Arial, sans-serif"><text x="60" y="65" fill="#c8ff36" font-size="18" font-weight="700">PLAYSEER AI · LOCAL-FIRST ARCHITECTURE</text>
+  <rect x="60" y="120" width="210" height="250" rx="22" fill="#fff"/><text x="90" y="165" font-size="16" font-weight="700" fill="#111827">GAME SIGNALS</text><text x="90" y="210" font-size="14" fill="#657083">Telemetry</text><text x="90" y="245" font-size="14" fill="#657083">Community voice</text><text x="90" y="280" font-size="14" fill="#657083">Release health</text><text x="90" y="315" font-size="14" fill="#657083">Economy metrics</text>
+  <path d="M285 245h75" stroke="#c8ff36" stroke-width="4"/><path d="m350 235 18 10-18 10" fill="#c8ff36"/>
+  <rect x="380" y="95" width="430" height="300" rx="22" fill="#202b36" stroke="#41505e"/><text x="415" y="135" font-size="16" font-weight="700" fill="#fff">PRIVATE AGENT ORCHESTRATOR</text>
+  <g fill="#fff"><rect x="415" y="165" width="165" height="75" rx="14"/><rect x="610" y="165" width="165" height="75" rx="14"/><rect x="415" y="270" width="165" height="75" rx="14"/><rect x="610" y="270" width="165" height="75" rx="14"/></g>
+  <g fill="#111827" font-size="13" font-weight="700"><text x="440" y="207">Telemetry Agent</text><text x="630" y="207">Community Agent</text><text x="442" y="312">Strategy Agent</text><text x="640" y="312">Risk Agent</text></g>
+  <text x="430" y="375" font-size="12" fill="#9aa6b1">Stage II: Intel Arc Pro B70 32GB · local model runtime</text>
+  <path d="M825 245h75" stroke="#c8ff36" stroke-width="4"/><path d="m890 235 18 10-18 10" fill="#c8ff36"/>
+  <rect x="920" y="120" width="220" height="250" rx="22" fill="#c8ff36"/><text x="950" y="165" font-size="16" font-weight="700" fill="#111827">DECISION BRIEF</text><text x="950" y="210" font-size="14" fill="#334009">Prioritized actions</text><text x="950" y="245" font-size="14" fill="#334009">Impact estimates</text><text x="950" y="280" font-size="14" fill="#334009">Audit evidence</text><text x="950" y="315" font-size="14" fill="#334009">Human approval</text>
+  <text x="60" y="450" fill="#82909e" font-size="13">No autonomous activation · Aggregated operational data · Explainable evidence trail</text></g>
+</svg>
