@@ -3,96 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PlaySeer AI turns fragmented game signals into evidence-backed LiveOps decisions using a private multi-agent workflow." />
-  <title>PlaySeer AI — Private LiveOps Intelligence</title>
+  <meta name="description" content="A private Workplace AI decision desk for game operations teams: analyze LiveOps signals, coordinate local agents, and keep humans in control." />
+  <title>PlaySeer AI — Workplace LiveOps Decision Desk</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="shell">
     <aside class="sidebar">
-      <a class="brand" href="#top" aria-label="PlaySeer AI home">
-        <span class="brand-mark" aria-hidden="true">PS</span>
-        <span><strong>PlaySeer</strong><small>LOCAL INTELLIGENCE</small></span>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a class="active" href="#command">Command center</a>
-        <a href="#agents">Agent workflow</a>
-        <a href="#decision">Decision brief</a>
-        <a href="#history">Run history</a>
-      </nav>
-      <div class="runtime-card">
-        <span class="status-dot"></span>
-        <div><strong>Demo engine online</strong><small>Arc Pro B70 adapter planned</small></div>
-      </div>
-      <p class="sidebar-note">Private by design<br />Human approval by default</p>
+      <a class="brand" href="#top" aria-label="PlaySeer AI home"><span class="brand-mark" aria-hidden="true">PS</span><span><strong>PlaySeer</strong><small>WORKPLACE AI · THUNDERSTORM</small></span></a>
+      <nav aria-label="Primary navigation"><a class="active" href="#command">Command center</a><a href="#agents">Agent workflow</a><a href="#decision">Decision brief</a><a href="#history">Run history</a></nav>
+      <div class="runtime-card"><span class="status-dot" id="runtimeDot"></span><div><strong>Inference runtime</strong><small id="runtimeLabel">Checking local runtime…</small></div></div>
+      <p class="sidebar-note">Private by design<br />Human approval by default<br />Hardware validation: pending</p>
     </aside>
-
     <main id="top">
-      <header class="topbar">
-        <div><p class="eyebrow">WORKPLACE AI · GAME OPERATIONS</p><h1>See the signal.<br />Choose the next move.</h1></div>
-        <button class="secondary" id="exportButton" disabled>Export decision JSON</button>
-      </header>
-
+      <header class="topbar"><div><p class="eyebrow">ASUS UGEN AI LEAGUE · WORKPLACE AI</p><h1>See the signal.<br />Choose the next move.</h1><p class="hero-subtitle">A decision desk for LiveOps teams handling retention, player trust and release health.</p></div><button class="secondary" id="exportButton" disabled>Export decision JSON</button></header>
       <section class="hero-grid" id="command">
         <article class="panel input-panel">
           <div class="section-heading"><span>01</span><div><p class="eyebrow">SIGNAL INTAKE</p><h2>Operational snapshot</h2></div></div>
-          <label for="scenario">Demo scenario</label>
-          <select id="scenario">
-            <option value="season">New season launch</option>
-            <option value="backlash">Monetization backlash</option>
-            <option value="stability">Stability incident</option>
-          </select>
+          <label for="scenario">Demo scenario</label><select id="scenario"><option value="season">New season launch</option><option value="backlash">Monetization backlash</option><option value="stability">Stability incident</option></select>
           <p class="scenario-note" id="scenarioNote"></p>
-          <div class="metric-grid">
-            <label>Daily active users<input id="dau" type="number" min="1" max="10000000" /></label>
-            <label>D1 retention (%)<input id="retention" type="number" min="0" max="100" step="0.1" /></label>
-            <label>Payer conversion (%)<input id="conversion" type="number" min="0" max="100" step="0.1" /></label>
-            <label>Player sentiment<input id="sentiment" type="number" min="0" max="100" step="1" /></label>
-            <label>Crash rate (%)<input id="crashRate" type="number" min="0" max="100" step="0.1" /></label>
-          </div>
-          <p id="formError" class="form-error" role="alert"></p>
-          <button class="primary" id="analyzeButton"><span>Run private agent analysis</span><span>↗</span></button>
-          <p class="privacy-note">No player-level data leaves this browser in demo mode.</p>
+          <div class="metric-grid"><label>Daily active users<input id="dau" type="number" min="1" max="10000000" /></label><label>D1 retention (%)<input id="retention" type="number" min="0" max="100" step="0.1" /></label><label>Payer conversion (%)<input id="conversion" type="number" min="0" max="100" step="0.1" /></label><label>Player sentiment<input id="sentiment" type="number" min="0" max="100" step="1" /></label><label>Crash rate (%)<input id="crashRate" type="number" min="0" max="100" step="0.1" /></label></div>
+          <p id="formError" class="form-error" role="alert"></p><button class="primary" id="analyzeButton"><span>Run private agent analysis</span><span>↗</span></button><p class="privacy-note">Aggregated demo metrics only. Local model credentials stay on the server.</p>
         </article>
-
         <article class="panel pulse-panel">
-          <div class="pulse-top"><p class="eyebrow">LIVE RISK PULSE</p><span id="riskBadge">Awaiting analysis</span></div>
+          <div class="pulse-top"><p class="eyebrow">LIVE RISK PULSE</p><span id="riskBadge">Awaiting analysis</span></div><p class="analysis-source" id="analysisSource">Run analysis to see the inference source.</p>
           <div class="score-wrap"><div class="score" id="riskScore">—</div><div><strong id="decisionLabel">No decision yet</strong><p>Composite risk / 100</p></div></div>
-          <div class="signal-bars" aria-label="Current metric summary">
-            <div><span>Retention</span><i><b id="retentionBar"></b></i><em id="retentionValue">—</em></div>
-            <div><span>Sentiment</span><i><b id="sentimentBar"></b></i><em id="sentimentValue">—</em></div>
-            <div><span>Stability</span><i><b id="stabilityBar"></b></i><em id="stabilityValue">—</em></div>
-          </div>
+          <div class="signal-bars" aria-label="Current metric summary"><div><span>Retention</span><i><b id="retentionBar"></b></i><em id="retentionValue">—</em></div><div><span>Sentiment</span><i><b id="sentimentBar"></b></i><em id="sentimentValue">—</em></div><div><span>Stability</span><i><b id="stabilityBar"></b></i><em id="stabilityValue">—</em></div></div>
           <div class="empty-state" id="emptyState"><span>◎</span><p>Choose a scenario, adjust the signals, and run the analysis.</p></div>
           <div class="north-star hidden" id="northStar"><p class="eyebrow">NORTH-STAR DECISION</p><h3 id="northStarText"></h3><p><strong id="opportunity"></strong> player sessions represent the immediate recovery opportunity.</p></div>
+          <div class="engine-notice" id="engineNotice">Analysis source will be reported with every result.</div>
+          <div class="hardware-notice" id="hardwareNotice">Thunderstorm hardware validation has not been performed.</div>
         </article>
       </section>
-
-      <section id="agents">
-        <div class="section-title"><div><p class="eyebrow">02 · ORCHESTRATION</p><h2>Four agents. One accountable recommendation.</h2></div><p>Each specialist contributes evidence. The risk agent gates every action for human review.</p></div>
-        <div class="agent-grid">
-          <article class="agent-card" data-agent="telemetry"><span>TA</span><h3>Telemetry analyst</h3><p>Finds retention, economy and stability anomalies.</p><small>WAITING</small></article>
-          <article class="agent-card" data-agent="community"><span>CA</span><h3>Community analyst</h3><p>Separates loud reactions from durable trust signals.</p><small>WAITING</small></article>
-          <article class="agent-card" data-agent="strategy"><span>SA</span><h3>LiveOps strategist</h3><p>Ranks reversible actions by impact and effort.</p><small>WAITING</small></article>
-          <article class="agent-card" data-agent="risk"><span>RA</span><h3>Risk reviewer</h3><p>Adds holdouts, approval gates and audit evidence.</p><small>WAITING</small></article>
-        </div>
+      <section id="agents"><div class="section-title"><div><p class="eyebrow">02 · PARALLEL ORCHESTRATION</p><h2>Four agents. One accountable recommendation.</h2></div><p>Telemetry, community, strategy and risk specialists run in parallel when a local model is configured. Deterministic baseline remains available for a reproducible demo.</p></div>
+        <div class="agent-grid"><article class="agent-card" data-agent="telemetry"><span>TA</span><h3>Telemetry analyst</h3><p>Finds retention, economy and stability anomalies.</p><small>WAITING</small></article><article class="agent-card" data-agent="community"><span>CA</span><h3>Community analyst</h3><p>Separates loud reactions from durable trust signals.</p><small>WAITING</small></article><article class="agent-card" data-agent="strategy"><span>SA</span><h3>LiveOps strategist</h3><p>Ranks reversible actions by impact and effort.</p><small>WAITING</small></article><article class="agent-card" data-agent="risk"><span>RA</span><h3>Risk reviewer</h3><p>Adds holdouts, approval gates and audit evidence.</p><small>WAITING</small></article></div>
       </section>
-
-      <section class="panel decision-panel" id="decision">
-        <div class="section-heading"><span>03</span><div><p class="eyebrow">DECISION BRIEF</p><h2>Prioritized response plan</h2></div></div>
-        <div id="decisionEmpty" class="decision-empty">Run an analysis to generate an evidence-backed plan.</div>
-        <div id="decisionContent" class="hidden">
-          <div class="decision-layout"><div><h3>Recommended actions</h3><ol id="actionList"></ol></div><div><h3>Segment watchlist</h3><div id="segmentList" class="segment-list"></div></div></div>
-          <details><summary>View agent evidence and audit trail</summary><ul id="evidenceList"></ul></details>
-          <div class="approval"><div><span>Human approval gate</span><strong>Required before activation</strong></div><button id="approveButton">Mark reviewed</button></div>
-        </div>
-      </section>
-
-      <section id="history">
-        <div class="section-title"><div><p class="eyebrow">04 · TRACEABILITY</p><h2>Recent decision runs</h2></div><button class="text-button" id="clearHistory">Clear local history</button></div>
-        <div class="history-list" id="historyList"><p>No saved runs yet.</p></div>
-      </section>
-      <footer><strong>PlaySeer AI</strong><span>Local-first multi-agent intelligence for game operations.</span><span>Hackathon prototype · v0.1</span></footer>
+      <section class="panel decision-panel" id="decision"><div class="section-heading"><span>03</span><div><p class="eyebrow">DECISION BRIEF</p><h2>Prioritized response plan</h2></div></div><div id="decisionEmpty" class="decision-empty">Run an analysis to generate an evidence-backed plan.</div><div id="decisionContent" class="hidden"><div class="decision-layout"><div><h3>Recommended actions</h3><ol id="actionList"></ol></div><div><h3>Segment watchlist</h3><div id="segmentList" class="segment-list"></div></div></div><details><summary>View agent evidence and audit trail</summary><ul id="evidenceList"></ul></details><div class="approval"><div><span>Human approval gate</span><strong>Required before activation</strong></div><button id="approveButton">Mark reviewed</button></div></div></section>
+      <section id="history"><div class="section-title"><div><p class="eyebrow">04 · TRACEABILITY</p><h2>Recent decision runs</h2></div><button class="text-button" id="clearHistory">Clear local history</button></div><div class="history-list" id="historyList"><p>No saved runs yet.</p></div></section>
+      <footer><strong>PlaySeer AI</strong><span>Workplace AI for private, explainable game operations.</span><span>Thunderstorm prototype · hardware validation pending</span></footer>
     </main>
   </div>
   <script type="module" src="app.js"></script>
